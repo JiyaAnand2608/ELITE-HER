@@ -9,6 +9,8 @@ This demo showcases **Priya's Story**—a 24-year-old student who froze during p
 
 ![Priya's Scenario Demo](./priya_demo.webp)
 
+📄 [**Download Priya's Structured Memory Account (PDF)**](./priya_account.pdf)
+
 ### 🏥 Comprehensive Use Case: Accident Witness
 This demo shows how the tool handles a sequence of sensory fragments from an accident witness.
 
