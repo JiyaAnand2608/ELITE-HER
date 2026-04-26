@@ -4,8 +4,13 @@
 
 ![Quick Demo](./demo_walkthrough.webp)
 
+### 🏥 Scenario: Priya (Trauma-Informed Memory Recall)
+This demo showcases **Priya's Story**—a 24-year-old student who froze during police questioning. By using Fragment First, she was able to record a 9:14 PM metro announcement that narrowed the incident window to 2 minutes, providing critical legal evidence that traditional forms missed.
+
+![Priya's Scenario Demo](./priya_demo.webp)
+
 ### 🏥 Comprehensive Use Case: Accident Witness
-This demo shows how the tool handles a sequence of sensory fragments from an accident witness and organizes them into a structured narrative.
+This demo shows how the tool handles a sequence of sensory fragments from an accident witness.
 
 ![Accident Witness Demo](./accident_witness_demo.webp)
 
