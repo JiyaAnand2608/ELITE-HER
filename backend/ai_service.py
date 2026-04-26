@@ -19,15 +19,53 @@ else:
                 def __init__(self, text): self.text = text
             
             if "Extract the following details" in prompt:
+                # Extract content from prompt
+                content = prompt.split('"{content}"'.replace("{content}", ""))[0] # This is a bit hacky but let's just look at the prompt
+                # Actually, the content is at the end of the prompt in the format "{content}"
+                
+                # Let's just use some logic based on the scenario
+                time = "Evening"
+                location = "Sector 17 Metro Station"
+                person = "Unknown"
+                sensory = "Visual/Sound"
+                follow_up = "What else do you remember about that moment?"
+
+                if "9:14" in prompt:
+                    time = "9:14 PM"
+                    sensory = "Audio: Metro Announcement"
+                    follow_up = "The announcement played twice—did you notice if anyone else reacted to it?"
+                elif "smell" in prompt or "concrete" in prompt:
+                    sensory = "Smell: Wet concrete and diesel"
+                    follow_up = "Was the smell stronger near the entrance or the stairs?"
+                elif "Haryanvi" in prompt or "laughing" in prompt:
+                    person = "Group near station"
+                    sensory = "Sound: Haryanvi dialect"
+                    follow_up = "Could you see how many people were laughing?"
+                elif "yellow" in prompt:
+                    person = "Person in yellow jacket"
+                    sensory = "Color: Bright Yellow"
+                    follow_up = "Did you see where that person went after you noticed the jacket?"
+
                 return Response(json.dumps({
-                    "time": "Evening",
-                    "location": "Near a park",
-                    "person": "A stranger",
-                    "sensory": "Smell of damp earth",
-                    "follow_up": "What color was the sky then?"
+                    "time": time,
+                    "location": location,
+                    "person": person,
+                    "sensory": sensory,
+                    "follow_up": follow_up
                 }))
             else:
-                return Response("Structured Narrative Account\n\nThis is a mock structured narrative for demo purposes.\n\nTrauma Science Explainer\n\nTrauma memory is often fragmented due to amygdala activation.")
+                # Structure account
+                return Response("""Structured Narrative Account
+
+On the evening of the incident at Sector 17 Metro Station, the survivor (Priya) recalls arriving around 9:00 PM. 
+
+A critical anchor point was established at 9:14 PM, confirmed by a repeated metro announcement due to a technical glitch. This specific fragment places the survivor at the station entrance during a precise 2-minute window. 
+
+Sensory fragments include the smell of wet concrete and diesel, and the sound of a mocking Haryanvi dialect from a group nearby. A person in a bright yellow jacket was observed following closely.
+
+Trauma Science Explainer
+
+Priya's memory is stored as disconnected fragments (sensory 'islands') rather than a linear narrative. This is a biological result of the amygdala's over-activation during the threat, which inhibits the hippocampus from 'time-stamping' the event. The presence of the 9:14 PM announcement as a clear fragment is a 'hard anchor' that allows for precise temporal reconstruction despite the survivor's internal sense of time being distorted by trauma.""")
     model = MockModel()
 
 TAG_PROMPT = """
